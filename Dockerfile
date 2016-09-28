@@ -29,7 +29,7 @@ RUN echo "export PS1='\u:\w$ '" >> ~/.bashrc
 # Get the rust source
 RUN git clone https://github.com/rust-lang/rust /home/rust
 
-# Copy the strontium source, This is easier than getting it from bitbucket because then we have to add ssh keys
-COPY strontium /home/strontium
+# Get the strontium source
+RUN git clone https://bitbucket.com/wildarch/strontium /home/strontium
 
 RUN ln -snf /bin/bash /bin/sh

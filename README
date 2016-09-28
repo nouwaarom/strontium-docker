@@ -1,6 +1,3 @@
-* Clone strontium to this folder
-~ git clone https://bitbucket.org/wildarch/strontium.git
-
 * Build the docker image
 ~ docker build -t strontium/strontium .
 
