@@ -4,8 +4,8 @@ strontium is a kernel for the raspberry pi 1. It is written in rust
 
 
 # Clone this repository
-~ git clone https://github.com/nouwaarom/strontium-docker
-~ cd strontium-docker
+* ~ git clone https://github.com/nouwaarom/strontium-docker
+* ~ cd strontium-docker
 
 # Install and configure docker
 ## follow the instructions at
@@ -14,22 +14,22 @@ https://docs.docker.com/engine/installation/
 
 # On the host
 ## Build the docker image
-~ docker build -t strontium/strontium .
+* ~ docker build -t strontium/strontium .
 
 ## Run the generated image
-To run the image only:
-~ docker run -it strontium/strontium
-To run the image with a local strontium clone
-~ docker run -i -v {local_path}/strontium:/home/strontium  -t strontium/strontium
-When the raspberry is connected via a serial cable
-~ docker run -it --device=/dev/ttyUSB0 strontium/strontium
+#To run the image only:
+* ~ docker run -it strontium/strontium
+#To run the image with a local strontium clone
+* ~ docker run -i -v {local_path}/strontium:/home/strontium  -t strontium/strontium
+#When the raspberry is connected via a serial cable
+* ~ docker run -it --device=/dev/ttyUSB0 strontium/strontium
 
 
 
 # In the docker container
 ## Compile strontium
-~ cd /strontium
-~ make
+* ~ cd /strontium
+* ~ make
 
 ## if the kernel is not yet on the sdcard (TODO)
 * Create a fat16 partition
@@ -37,5 +37,5 @@ When the raspberry is connected via a serial cable
 * Copy kernel.img to the new partition
 
 ## Upload the image using raspbootcom
-~ make run
+* ~ make run
 
