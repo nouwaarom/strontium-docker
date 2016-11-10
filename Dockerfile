@@ -22,6 +22,9 @@ RUN curl -sSf https://sh.rustup.rs | sh -s -- --default-toolchain nightly -y
 RUN echo "export PATH=~/.cargo/bin:$PATH" >> ~/.bashrc
 RUN echo "export PS1='\u:\w$ '" >> ~/.bashrc
 
+# Rustup needs the rust-src component
+RUN rustup component add rust-src
+
 # TODO, install raspbootin, check if serial from docker works
 RUN git clone https://github.com/mrvn/raspbootin /home/raspbootin
 WORKDIR /home/raspbootin/raspbootcom/
@@ -30,7 +33,7 @@ RUN cp raspbootcom /usr/bin
 WORKDIR /home/
 
 # Get the strontium source
-RUN git clone https://bitbucket.com/wildarch/strontium /home/strontium
+RUN git clone https://github.com/wildarch/strontium.git /home/strontium
 
 # Install xargo, this doesnt work here, do this manually
 RUN /root/.cargo/bin/cargo install xargo
