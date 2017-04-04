@@ -23,7 +23,7 @@ RUN echo "export PATH=~/.cargo/bin:$PATH" >> ~/.bashrc
 RUN echo "export PS1='\u:\w$ '" >> ~/.bashrc
 
 # Rustup needs the rust-src component
-RUN rustup component add rust-src
+RUN ~/.cargo/bin/rustup component add rust-src
 
 # TODO, install raspbootin, check if serial from docker works
 RUN git clone https://github.com/mrvn/raspbootin /home/raspbootin
@@ -39,3 +39,6 @@ RUN git clone https://github.com/wildarch/strontium.git /home/strontium
 RUN /root/.cargo/bin/cargo install xargo
 
 RUN ln -snf /bin/bash /bin/sh
+
+WORKDIR /home/strontium/
+RUN PATH=$PATH:/root/.cargo/bin make || true
